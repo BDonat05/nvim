@@ -16,6 +16,12 @@ map("n", "<leader>Q", ":q!<CR>")
 
 -- Plugin keybinds
 -- NOTE: blink.cmp binds are not here, sice they're best configurable internally
+
+-- NOTE: comment mappings are hidden and can only be configured internally (fuck the makers of the
+-- NOTE: comment plugin), so check out the comment.nvim github repo for keybindings
+
+map("n", "<leader>ll", "<CMD>Lazy<CR>", { desc = "Open Lazy package manager" })
+
 map("n", "<leader>e", ":Neotree toggle left<CR>")
 map("n", "<leader>tt", ":Themery<CR>")
 
@@ -24,6 +30,7 @@ map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 map("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 map("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+map("n", "<leader>fc", "<CMD>TodoTelescope<CR>", { desc = "Find Todo comments in telescope" })
 
 map("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
@@ -50,7 +57,7 @@ function _G.set_lsp_keymaps(event)
 	map("n", "gr", vim.lsp.buf.references, opts)
 	map("n", "K", vim.lsp.buf.hover, opts)
 	map("n", "<leader>rn", vim.lsp.buf.rename, opts)
-	map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+	map("n", "<leader>la", vim.lsp.buf.code_action, opts)
 	map("n", "<leader>lf", require("conform").format, opts)
 	map("n", "<leader>ld", vim.diagnostic.open_float, opts)
 end
@@ -62,8 +69,8 @@ map(
 	"<cmd>Trouble diagnostics toggle filter.buf=0 focus=true<cr>",
 	{ desc = "Buffer Diagnostics (Trouble)" }
 )
-map("n", "<leader>cs", "<cmd>Trouble symbols toggle position=right<cr>", { desc = "Symbols (Trouble)" })
-map("n", "<leader>cl", "<cmd>Trouble lsp toggle position=right<cr>", { desc = "Lsp definitions (Trouble)" })
+map("n", "<leader>xs", "<cmd>Trouble symbols toggle position=right<cr>", { desc = "Symbols (Trouble)" })
+map("n", "<leader>xl", "<cmd>Trouble lsp toggle position=right<cr>", { desc = "Lsp definitions (Trouble)" })
 map("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Loclist (Trouble)" })
 map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfixlist (Trouble)" })
 

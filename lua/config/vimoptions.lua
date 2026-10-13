@@ -11,6 +11,7 @@ vim.opt.winborder = "rounded"
 
 vim.diagnostic.enable = true
 vim.diagnostic.config({
-  virtual_text = true,
-  -- virtual_lines = true,
+	virtual_text = true,
+	-- virtual_lines = true,
 })
+vim.cmd("set clipboard+=unnamedplus")

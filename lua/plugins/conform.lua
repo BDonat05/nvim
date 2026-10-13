@@ -3,9 +3,10 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			c_sharp = { "csharpier" },
+			c_sharp = { "clang-format" },
 			c = { "clang-format" },
 			haskell = { "fourmolu" },
+			bash = { "shfmt" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
