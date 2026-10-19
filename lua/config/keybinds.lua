@@ -6,13 +6,13 @@ map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down a page" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up a page" })
 
-map("n", "<C-s>", ":w<CR>")
-map("n", "<leader>c", ":bd<CR>")
-map("n", "<leader>q", ":q<CR>")
-map("n", "<leader>Q", ":q!<CR>")
+map("n", "<C-s>", "<CMD>w<CR>", { desc = "Save buffer" })
+map("n", "<leader>c", "<CMD>bd<CR>", { desc = "Close buffer" })
+map("n", "<leader>q", "<CMD>q<CR>", { desc = "Quit window" })
+map("n", "<leader>Q", "<CMD>q!<CR>", { desc = "Force quit window" })
 
 -- Plugin keybinds
 -- NOTE: blink.cmp binds are not here, sice they're best configurable internally
@@ -20,10 +20,10 @@ map("n", "<leader>Q", ":q!<CR>")
 -- NOTE: comment mappings are hidden and can only be configured internally (fuck the makers of the
 -- NOTE: comment plugin), so check out the comment.nvim github repo for keybindings
 
-map("n", "<leader>ll", "<CMD>Lazy<CR>", { desc = "Open Lazy package manager" })
+map("n", "<leader>L", "<CMD>Lazy<CR>", { desc = "Open Lazy package manager" })
 
-map("n", "<leader>e", ":Neotree toggle left<CR>")
-map("n", "<leader>tt", ":Themery<CR>")
+map("n", "<leader>e", "<CMD>Neotree toggle left<CR>", { desc = "Open Neo-tree" })
+map("n", "<leader>tt", "<CMD>Themery<CR>", { desc = "Open Themery" })
 
 local builtin = require("telescope.builtin")
 map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
@@ -34,10 +34,14 @@ map("n", "<leader>fc", "<CMD>TodoTelescope<CR>", { desc = "Find Todo comments in
 
 map("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-map("n", "<leader>tb", "<CMD>ToggleTerm<CR>", { desc = "Open terminal on the bottom" })
-map("n", "<leader>tf", "<CMD>ToggleTerm direction=float<CR>", { desc = "Open a floating terminal" })
+map("n", "<leader>m", "<CMD>Mason<CR>", { desc = "Open Mason tool manager" })
 
-map("n", "<leader>m", "<CMD>Mason<CR>")
+map("n", "<leader>tb", "<CMD>ToggleTerm<CR>", { desc = "Toggle terminal on the bottom" })
+map("n", "<leader>tf", "<CMD>ToggleTerm direction=float<CR>", { desc = "Toggle a floating terminal" })
+map("n", "<C-t>", "<CMD>ToggleTerm<CR>", { desc = "Toggle terminal on the bottom" })
+map("t", "<C-t>", "<CMD>ToggleTerm<CR>", { desc = "Toggle terminal on the bottom" })
+map("n", "<M-t>", "<CMD>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" }) -- M stands for the alt key
+map("t", "<M-t>", "<CMD>ToggleTerm direction=float<CR>", { desc = "Toggle floating terminal" })
 
 function _G.set_terminal_keymaps()
 	local opts = { buffer = 0 }

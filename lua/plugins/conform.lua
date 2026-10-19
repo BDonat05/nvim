@@ -7,6 +7,13 @@ return {
 			c = { "clang-format" },
 			haskell = { "fourmolu" },
 			bash = { "shfmt" },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+		},
+		formatters = {
+			clang_format = {
+				append_args = { "-style=file" },
+			},
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
