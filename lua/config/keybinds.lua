@@ -9,10 +9,13 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to right window" })
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down a page" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up a page" })
 
+map("i", "<C-c>", "<Esc>", { desc = "Exit insert mode" })
+map("n", "<Esc>", "<CMD>nohl<CR>", { desc = "Stop search highlighting" })
+
 map("n", "<C-s>", "<CMD>w<CR>", { desc = "Save buffer" })
 map("n", "<leader>c", "<CMD>bd<CR>", { desc = "Close buffer" })
 map("n", "<leader>q", "<CMD>q<CR>", { desc = "Quit window" })
-map("n", "<leader>Q", "<CMD>q!<CR>", { desc = "Force quit window" })
+map("n", "<leader>Q", "<CMD>qa!<CR>", { desc = "Force quit window" })
 
 -- Plugin keybinds
 -- NOTE: blink.cmp binds are not here, sice they're best configurable internally
